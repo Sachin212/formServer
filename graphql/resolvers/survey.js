@@ -16,10 +16,10 @@ module.exports = {
         async createSurvey(
             _, 
             {
-                surveyInput: {name, phone, college, codechef_id, whatsapp, branch, semester}
+                surveyInput: {name, phone, college, codechef_id, whatsapp, branch, semester, email}
             }
         ) {
-            if(name.trim() === '' || college.trim() === '' || codechef_id.trim() === '' || phone.trim() === '' || branch.trim() === '' || semester.trim() === ''){
+            if(name.trim() === '' || college.trim() === '' || codechef_id.trim() === '' || phone.trim() === '' || branch.trim() === '' || semester.trim() === '' || email.trim() === ''){
                 throw new Error('Should not be empty')
             }
 
@@ -45,6 +45,7 @@ module.exports = {
                 whatsapp,
                 branch,
                 semester,
+                email,
                 submittedAt: new Date().toISOString()
             })
 

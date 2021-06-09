@@ -10,6 +10,7 @@ const typeDefs = gql`
         whatsapp: String!
         branch: String!
         semester: String!
+        email: String!
         submitted: String!
     }
     input SurveyInput{
@@ -20,6 +21,7 @@ const typeDefs = gql`
         whatsapp: String
         branch: String!
         semester: String!
+        email: String!
     }
     type Query{
         getSurvey: [Survey]

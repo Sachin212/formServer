@@ -8,7 +8,8 @@ const surveySchema = new Schema({
     whatsapp: String,
     branch: String,
     semester: String,
-    submitted: String
+    submitted: String,
+    email: String
 })
 
 module.exports = model('Survey', surveySchema)
