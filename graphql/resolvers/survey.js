@@ -1,6 +1,7 @@
 const Survey = require('../../models/Survey')
 const {UserInputError} = require('apollo-server')
 
+const { validateRegisterInput } = require('../../util/validator')
 module.exports = {
     Query: {
         async getSurvey(){
@@ -21,6 +22,14 @@ module.exports = {
         ) {
             if(name.trim() === '' || college.trim() === '' || codechef_id.trim() === '' || phone.trim() === '' || branch.trim() === '' || semester.trim() === '' || email.trim() === ''){
                 throw new Error('Should not be empty')
+            }
+
+            const { valid, errors } = validateRegisterInput(
+                email
+            )
+
+            if(!valid){
+                throw new UserInputError('Error', { errors })
             }
 
             if(whatsapp === undefined){
